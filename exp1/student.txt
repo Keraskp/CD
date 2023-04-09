@@ -1,0 +1,4 @@
+
+Name: Aditya	 Marks: 12
+Name: Tushar	 Marks: 15
+Name: Subhraneel	 Marks: 20

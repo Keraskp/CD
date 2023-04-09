@@ -1,0 +1,4 @@
+My name is Javascript
+What is your name?
+How are you?
+I hate web development

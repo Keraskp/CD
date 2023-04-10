@@ -1,0 +1,4 @@
+// This is a comment
+printf("Hello World!");
+
+/* block_comment */

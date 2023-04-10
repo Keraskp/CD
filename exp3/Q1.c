@@ -4,14 +4,49 @@
 
 FILE *fp, *fp2;
 
+void single_comment();
+void block_comment();
+void check_comment(char c);
+
 void check_comment(char c)
 {
     char d;
     if (c == '/')
-        if ((d = fgetc(fp)) == '*')
+        d = fgetc(fp);
+        if (d == '*')
             block_comment();
-        else if ((d = fgetc(fp)) == '/')
+        else if (d == '/')
             single_comment();
+}
+/* */
+void block_comment(){
+    fputc('/', fp2);
+    fputc('*', fp2);
+    char c, d;
+    while((c = fgetc(fp))!=EOF){
+        if(c == '*'){
+            d = fgetc(fp);
+            if(d == '/'){
+                fputc('*', fp2);
+                fputc('/', fp2);
+                return;
+            }
+        }
+        fputc(c, fp2);
+    }
+
+}
+
+void single_comment(){
+
+    char c;
+    fputc('/', fp2);
+    fputc('/', fp2);
+    while((c = fgetc(fp)) != '\n'){
+        fputc(c, fp2);
+    }
+
+    fputc('\n', fp2);
 }
 
 int main()
